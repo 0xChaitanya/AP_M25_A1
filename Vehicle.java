@@ -30,4 +30,12 @@ public abstract class Vehicle{
         return this.id;
     }
 
+    /**
+     * getter method for returning maxSpeed
+     * @return maxSpeed;
+     */
+    public double getMaxSpeed(){
+        return this.maxSpeed;
+    }
+
 }
