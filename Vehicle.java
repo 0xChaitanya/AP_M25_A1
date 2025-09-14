@@ -31,7 +31,7 @@ public abstract class Vehicle{
     }
 
     /**
-     * getter method for returning maxSpeed
+     * getter method for maxSpeed
      * @return maxSpeed;
      */
     public double getMaxSpeed(){
