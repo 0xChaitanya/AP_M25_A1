@@ -11,4 +11,8 @@ public abstract class AirVehicle extends Vehicle {
     public double estimateJourneyTime(double distance){
         return (distance / this.getMaxSpeed()) * 0.95; 
     }
+
+    public double getMaxAltitude(){
+        return maxAltitude;
+    }
 }
