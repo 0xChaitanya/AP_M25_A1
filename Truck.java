@@ -1,3 +1,6 @@
+import Interfaces.*;
+import AbstractClasses.*;
+
 public class Truck extends LandVehicle implements FuelConsumable, CargoCarrier, Maintainable {
     private double fuelLevel;
     private double cargoCapacity = 5000;

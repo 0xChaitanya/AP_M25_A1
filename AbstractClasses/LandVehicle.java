@@ -1,3 +1,5 @@
+package AbstractClasses;
+
 public abstract class LandVehicle extends Vehicle {
     private int numWheels;
 

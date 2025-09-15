@@ -1,3 +1,6 @@
+package AbstractClasses;
+import Exceptions.*;
+
 public abstract class Vehicle{
     private String id;
     private String model;
@@ -11,7 +14,7 @@ public abstract class Vehicle{
         this.currentMileage = currentMileage;
     }
 
-    public abstract void move(double distance);
+    public abstract void move(double distance) throws InvalidOperationException;
     public abstract double calculateFuelEfficiency();
     public abstract double estimateJourneyTime(double distance);
 

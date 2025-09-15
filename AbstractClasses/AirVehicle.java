@@ -1,3 +1,5 @@
+package AbstractClasses;
+
 public abstract class AirVehicle extends Vehicle {
     private double maxAltitude;
 

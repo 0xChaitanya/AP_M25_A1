@@ -1,3 +1,5 @@
+package AbstractClasses;
+
 public abstract class WaterVehicle extends Vehicle {
     private boolean hasSail;
 
