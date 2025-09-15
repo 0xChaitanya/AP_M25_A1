@@ -25,10 +25,10 @@ public class Car extends LandVehicle implements FuelConsumable, PassengerCarrier
         return 15;
     }
 
-    public double consumeFuel(double distance){
+    public double consumeFuel(double distance) throws InsufficientFuelException{
 
         if (fuelLevel < (1 / calculateFuelEfficiency()) * distance){
-            System.out.println("throws InsufficientFuelException");
+            throw new InsufficientFuelException("Insufficient Fuel");
         }
         
         return (1 / calculateFuelEfficiency()) * distance;

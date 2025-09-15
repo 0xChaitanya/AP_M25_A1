@@ -1,10 +1,11 @@
+import Exceptions.*;
 import Interfaces.*;
 import AbstractClasses.*;
 
 public class Truck extends LandVehicle implements FuelConsumable, CargoCarrier, Maintainable {
-    private double fuelLevel;
+    private double fuelLevel = 0;
     private double cargoCapacity = 5000;
-    private double currentCargo;
+    private double  currentCargo = 0;
     private boolean maintenanceNeeded;
 
     public void move(){
@@ -14,4 +15,49 @@ public class Truck extends LandVehicle implements FuelConsumable, CargoCarrier, 
     public double calculateFuelEfficiency(){
         return 8;
     }
+
+    public void refuel(double amount) throws InvalidOperationException{
+        if (amount < 0){
+            throw new InvalidOperationException("Fuel amount cannot be less that zero.");
+        }
+        fuelLevel += amount;
+    }
+
+    public double getFuelLevel(){
+        return fuelLevel;
+    }
+
+    public double consumeFuel(double distance) throws InsufficientFuelException{
+        if (fuelLevel < (1 / calculateFuelEfficiency()) * distance){
+            throw new InsufficientFuelException("Insufficient Fuel");
+        }
+
+        return (1 / calculateFuelEfficiency()) * distance;
+    }
+
+    //CargoCarrier methods implementing
+    public void loadCargo(double weight) throws OverloadException{
+        if (currentCargo + weight > 5000){
+            throw new OverloadException("Truck Overloaded.");
+        }
+        currentCargo += weight;
+    }
+
+    public void unloadCargo(double weight) throws InvalidOperationException{
+        if (weight < currentCargo){
+            throw new InvalidOperationException("Invalid value for weight");
+        }
+        currentCargo -= weight;
+    }
+
+    public double getCargoCapacity(){
+        return cargoCapacity;
+    }
+
+    public double getCurrentCargo(){
+        return currentCargo;
+    }
+
+    //Maintainable methods implementing
+
 }
