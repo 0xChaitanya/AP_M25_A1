@@ -47,7 +47,7 @@ public class Truck extends LandVehicle implements FuelConsumable, CargoCarrier, 
 
     //CargoCarrier methods implementing
     public void loadCargo(double weight) throws OverloadException{
-        if (currentCargo + weight > 5000){
+        if (currentCargo + weight > cargoCapacity){
             throw new OverloadException("Truck Overloaded.");
         }
         currentCargo += weight;
