@@ -3,6 +3,8 @@ import Exceptions.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import ConcreteClasses.*;
+
 public class FleetManager {
     private List<Vehicle> fleet = new ArrayList<Vehicle>();
 
@@ -31,16 +33,51 @@ public class FleetManager {
         }
     }
 
-    public double getTotalFuelConsumption(double distance){
-        for (Vehicle V : fleet){
-            if (V)
-        }
-    }
+//    public double getTotalFuelConsumption(double distance){
+//        for (Vehicle V : fleet){
+//            if (V)
+//        }
+//    }
 
     public void maintainAll(){
         for (Vehicle V : fleet){
-            if (V.needsMaintenance())
+            if (V instanceof Car){
+                Car car = (Car) V;
+                if ((car.needsMaintenance())){
+                    car.performMaintenance();
+                }
+            }
+            else if (V instanceof Bus){
+                Bus bus = (Bus) V;
+                if (bus.needsMaintenance()){
+                    bus.performMaintenance();
+                }
+            }
+            else if (V instanceof Airplane){
+                Airplane airplane = (Airplane) V;
+                if (airplane.needsMaintenance()){
+                    airplane.performMaintenance();
+                }
+            }
+            else if (V instanceof CargoShip){
+                CargoShip cargoship = (CargoShip) V;
+                if (cargoship.needsMaintenance()){
+                    cargoship.performMaintenance();
+                }
+            }
+            else{
+                Truck truck = (Truck) V;
+                if (truck.needsMaintenance()){
+                    truck.performMaintenance();
+                }
+            }
         }
+    }
+
+    public List<Vehicle> searchByType(Class<?> Type){
+        List<Vehicle> result = new ArrayList<Vehicle>();
+
+
     }
 }
 
