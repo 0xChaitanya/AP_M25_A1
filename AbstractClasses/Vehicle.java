@@ -1,7 +1,7 @@
 package AbstractClasses;
 import Exceptions.*;
 
-public abstract class Vehicle{
+public abstract class Vehicle implements Comparable<Vehicle>{
     private String id;
     private String model;
     private double maxSpeed;
@@ -41,4 +41,7 @@ public abstract class Vehicle{
         return this.maxSpeed;
     }
 
+    public int compareTo(Vehicle V){
+        return Double.compare(this.calculateFuelEfficiency(), V.calculateFuelEfficiency());
+    }
 }

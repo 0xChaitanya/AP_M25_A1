@@ -1,7 +1,9 @@
 import AbstractClasses.*;
 import Exceptions.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.lang.Class;
 
 import ConcreteClasses.*;
 
@@ -74,10 +76,22 @@ public class FleetManager {
         }
     }
 
-    public List<Vehicle> searchByType(Class<?> Type){
+    public List<Vehicle> searchByType(Class<?> type){
         List<Vehicle> result = new ArrayList<Vehicle>();
 
+        for (Vehicle V : fleet){
+            if (type.isInstance(V)){
+                result.add(V);
+            }
+        }
 
+        return result;
     }
+
+    public void sortFleetByEfficiency(){
+        Collections.sort(fleet);
+    }
+
+
 }
 
