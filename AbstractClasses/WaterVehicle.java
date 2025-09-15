@@ -11,4 +11,8 @@ public abstract class WaterVehicle extends Vehicle {
     public double estimateJourneyTime(double distance){
         return (distance / this.getMaxSpeed()) * 1.15;
     }
+
+    public boolean getFueled(){
+        return hasSail;
+    }
 }
