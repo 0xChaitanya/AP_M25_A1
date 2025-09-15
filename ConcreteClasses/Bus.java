@@ -100,7 +100,7 @@ public class Bus extends LandVehicle implements FuelConsumable, PassengerCarrier
         maintenanceNeeded = true;
     }
 
-    public boolean needMaintenance(){
+    public boolean needsMaintenance(){
         if (getCurrentMileage() > 1000) return true;
         return false;
     }
