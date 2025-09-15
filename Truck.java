@@ -6,9 +6,17 @@ public class Truck extends LandVehicle implements FuelConsumable, CargoCarrier, 
     private double fuelLevel = 0;
     private double cargoCapacity = 5000;
     private double  currentCargo = 0;
-    private boolean maintenanceNeeded;
+    private boolean maintenanceNeeded = false;
 
-    public void move(){
+    public Truck(String id, String model, double maxSpeed, double currentMileage, double currentCargo){
+        super(id, model, maxSpeed, currentMileage, 8);
+        this.currentCargo = currentCargo;
+    }
+
+    public void move(double distance) throws InvalidOperationException{
+        if (distance < 0){
+            throw new InvalidOperationException("Distance cannot be less than zero.");
+        }
         System.out.println("Hauling cargo...");
     }
 
@@ -59,5 +67,16 @@ public class Truck extends LandVehicle implements FuelConsumable, CargoCarrier, 
     }
 
     //Maintainable methods implementing
+    public void scheduleMaintenance(){
+        maintenanceNeeded = true;
+    }
 
+    public boolean needsMaintenance(){
+        if (getCurrentMileage() > 1000) return true;
+        return false;
+    }
+
+    public void performMaintenance(){
+        maintenanceNeeded = false;
+    }
 }

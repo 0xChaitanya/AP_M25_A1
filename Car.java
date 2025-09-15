@@ -10,8 +10,9 @@ public class Car extends LandVehicle implements FuelConsumable, PassengerCarrier
     private int currentPassengers = 0;
     private boolean maintenanceNeeded;
 
-    public Car(String id, String model, double maxSpeed, double currentMileage){
+    public Car(String id, String model, double maxSpeed, double currentMileage, int currentPassengers){
         super(id, model, maxSpeed, currentMileage, 4);
+        this.currentPassengers = currentPassengers;
     }
 
     public void move(double distance) throws InvalidOperationException{
