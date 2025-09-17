@@ -92,6 +92,35 @@ public class FleetManager {
         Collections.sort(fleet);
     }
 
+    public String generateReport(){
+        int carCount = 0;
+        int busCount = 0;
+        int cargoshipCount = 0;
+        int truckCount = 0;
+        int airplaneCount = 0;
 
+        System.out.println();
+
+        for (Vehicle V : fleet){
+            if (V instanceof Car){
+                carCount++;
+            }
+            else if (V instanceof Bus){
+                busCount++;
+            }
+            else if (V instanceof Airplane){
+                airplaneCount++;
+            }
+            else if (V instanceof CargoShip){
+                cargoshipCount++;
+            }
+            else{
+                truckCount++;
+            }
+        }
+
+        return ("Report:\n Total number of vehicles : %d\n\n Count by type:\n Airplane: \n Car: %d\n Bus: \n CargoShip: \n Truck: \n", fleet.size(), airplaneCount, carCount, busCount, cargoshipCount, truckCount);
+
+    }
 }
 
