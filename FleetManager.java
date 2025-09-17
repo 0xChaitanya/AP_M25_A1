@@ -191,5 +191,43 @@ public class FleetManager {
 
         return result;
     }
+
+    public List<Vehicle> getVehiclesNeedingMaintenance(){
+        List<Vehicle> result = new ArrayList<>();
+        for (Vehicle V : fleet){
+            if (V instanceof Car){
+                Car car = (Car) V;
+                if (car.needsMaintenance()){
+                    result.add(car);
+                }
+            }
+            else if (V instanceof Bus){
+                Bus bus = (Bus) V;
+                if (bus.needsMaintenance()){
+                    result.add(bus);
+                }
+            }
+            else if (V instanceof Airplane){
+                Airplane airplane = (Airplane) V;
+                if (airplane.needsMaintenance()){
+                    result.add(airplane);
+                }
+            }
+            else if (V instanceof CargoShip){
+                CargoShip cargoship = (CargoShip) V;
+                if (cargoship.needsMaintenance()){
+                    result.add(cargoship);
+                }
+            }
+            else{
+                Truck truck = (Truck) V;
+                if (truck.needsMaintenance()){
+                    result.add(truck);
+                }
+            }
+        }
+
+        return result;
+    }
 }
 
