@@ -35,11 +35,35 @@ public class FleetManager {
         }
     }
 
-//    public double getTotalFuelConsumption(double distance){
-//        for (Vehicle V : fleet){
-//            if (V)
-//        }
-//    }
+    public double getTotalFuelConsumption(double distance) throws InsufficientFuelException{
+        double result = 0;
+        for (Vehicle V : fleet){
+            if (V instanceof Car){
+                Car car = (Car) V;
+                result += car.consumeFuel(distance);
+            }
+            else if (V instanceof Bus){
+                Bus bus = (Bus) V;
+                result += bus.consumeFuel(distance);
+            }
+            else if (V instanceof Airplane){
+                Airplane airplane = (Airplane) V;
+                result += airplane.consumeFuel(distance);
+            }
+            else if (V instanceof CargoShip){
+                CargoShip cargoship = (CargoShip) V;
+                if (cargoship.getFueled() == true){
+                    result += cargoship.consumeFuel(distance);
+                }
+            }
+            else{
+                Truck truck = (Truck) V;
+                result += truck.consumeFuel(distance);
+            }
+        }
+
+        return result;
+    }
 
     public void maintainAll(){
         for (Vehicle V : fleet){
@@ -92,6 +116,49 @@ public class FleetManager {
         Collections.sort(fleet);
     }
 
+    public double averageEfficiency(){
+        double result = 0;
+        double divisor = 0;
+
+        for (Vehicle V : fleet){
+            if (V instanceof Car){
+                Car car = (Car) V;
+                result += car.calculateFuelEfficiency();
+                divisor++;
+            }
+            else if (V instanceof Bus){
+                Bus bus = (Bus) V;
+                result += bus.calculateFuelEfficiency();
+                divisor++;
+            }
+            else if (V instanceof Airplane){
+                Airplane airplane = (Airplane) V;
+                result += airplane.calculateFuelEfficiency();
+                divisor++;
+            }
+            else if (V instanceof CargoShip){
+                CargoShip cargoship = (CargoShip) V;
+                result += cargoship.calculateFuelEfficiency();
+                divisor++;
+            }
+            else{
+                Truck truck = (Truck) V;
+                result += truck.calculateFuelEfficiency();
+                divisor++;
+            }
+        }
+
+        return result / divisor;
+    }
+
+    public double totalMileage(){
+        double result = 0;
+        for (Vehicle V : fleet){
+            result += V.getCurrentMileage();
+        }
+        return result;
+    }
+
     public String generateReport(){
         int carCount = 0;
         int busCount = 0;
@@ -119,8 +186,10 @@ public class FleetManager {
             }
         }
 
-        return ("Report:\n Total number of vehicles : %d\n\n Count by type:\n Airplane: \n Car: %d\n Bus: \n CargoShip: \n Truck: \n", fleet.size(), airplaneCount, carCount, busCount, cargoshipCount, truckCount);
+        String result = String.format(
+                "Report:\n Total number of vehicles : %d\n\n Count by type:\n Airplane: %d\n Car: %d\n Bus: %d\n CargoShip: %d\n Truck: %d\n\n Average Fuel Efficiency: %f\n Total Mileage: %f\n \\",fleet.size(), airplaneCount, carCount, busCount, cargoshipCount, truckCount, averageEfficiency(), totalMileage());
 
+        return result;
     }
 }
 
