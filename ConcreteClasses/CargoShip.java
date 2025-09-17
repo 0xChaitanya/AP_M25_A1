@@ -69,6 +69,10 @@ public class CargoShip extends WaterVehicle implements FuelConsumable, CargoCarr
         return cargoCapacity;
     }
 
+    public double getCurrentCargo(){
+        return currentCargo;
+    }
+
     //Maintainable methods implementing
     public void scheduleMaintenance(){
         maintenanceNeeded = true;
