@@ -4,7 +4,7 @@ import Exceptions.*;
 import Interfaces.*;
 import AbstractClasses.*;
 
-public class Car extends LandVehicle implements FuelConsumable, PassengerCarrier, Maintainable {
+public class  Car extends LandVehicle implements FuelConsumable, PassengerCarrier, Maintainable {
     private double fuelLevel = 0;
     private int passengerCapacity = 5;
     private int currentPassengers = 0;

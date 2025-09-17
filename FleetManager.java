@@ -229,5 +229,51 @@ public class FleetManager {
 
         return result;
     }
+
+    public List<List<String>> getVehicleDetails(){ //I have added this method because I want details of all vehicles to store in the CSV file
+        List<List<String>> result = new ArrayList<>();
+
+        List<String> carD = new ArrayList<>();
+        List<String> busD = new ArrayList<>();
+        List<String> aiplaneD = new ArrayList<>();
+        List<String> cargoshipD = new ArrayList<>();
+        List<String> truckD = new ArrayList<>();
+
+        for (Vehicle V : fleet){
+            if (V instanceof Car){
+                Car car = (Car) V;
+                carD.add("Car");
+                carD.add(car.getId());
+                carD.add(String.format("%f", car.getFuelLevel()));
+                carD.add(String.format("%d", car.getCurrentPassengers()));
+                carD.add("NA");
+                if (car.needsMaintenance()){
+                    carD.add("Yes");
+                }
+                else{
+                    carD.add("No");
+                }
+                carD.add("NA");
+            }
+            else if (V instanceof Bus){
+                Bus bus = (Bus) V;
+
+            }
+            else if (V instanceof Airplane){
+                Airplane airplane = (Airplane) V;
+
+            }
+            else if (V instanceof CargoShip){
+                CargoShip cargoship = (CargoShip) V;
+
+            }
+            else{
+                Truck truck = (Truck) V;
+
+            }
+        }
+
+        return result;
+    }
 }
 
