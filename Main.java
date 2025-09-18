@@ -126,8 +126,8 @@ public class Main {
                     else{
                         hasSailed = false;
                     }
-                    cargo = new CargoShip(id, model, maxSpeed, currentMileage, hasSailed);
-                    vehicles.addVehicle(cargo);
+                    cargoShip = new CargoShip(id, model, maxSpeed, currentMileage, hasSailed);
+                    vehicles.addVehicle(cargoShip);
                 }
                 else if (choiceVehicle == 5){
                     System.out.println("Enter ID : ");
