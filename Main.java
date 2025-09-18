@@ -193,7 +193,6 @@ public class Main {
                     boolean header = true;
 
                     for (List<String> lst : fileHandler.loadFromFile("vehicleDetails.csv")) {
-                        System.out.println(lst);
                         if (header == true){
                             header = false;
                             continue;
@@ -214,11 +213,12 @@ public class Main {
                             cargoShip = new CargoShip(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Boolean.parseBoolean(lst.get(9)));
                             vehicles.addVehicle(cargoShip);
                         }
+                        System.out.println("Successfully loaded data from the file.");
                     }
                     break;
 
                 case 9:
-                    System.out.println(vehicles.totalMileage());
+                    List<Vehicle> found = null;
                     System.out.println(
                             "Which vehicle do you want to search by type : \n" +
                                     "1. Airplane\n" +
@@ -231,17 +231,25 @@ public class Main {
                     int choice_ = input.nextInt();
 
                     if (choice_ == 1) {
-                        vehicles.searchByType(Airplane.class);
+                        found = vehicles.searchByType(Airplane.class);
                     } else if (choice_ == 2) {
-                        vehicles.searchByType(Bus.class);
+                        found = vehicles.searchByType(Bus.class);
                     } else if (choice_ == 3) {
-                        System.out.println(vehicles.searchByType(Car.class));
+                        found = vehicles.searchByType(Car.class);
                     } else if (choice_ == 4) {
-                        vehicles.searchByType(CargoShip.class);
+                        found = vehicles.searchByType(CargoShip.class);
                     } else if (choice_ == 5) {
-                        vehicles.searchByType(Truck.class);
+                        found = vehicles.searchByType(Truck.class);
                     } else {
                         System.out.println("Invalid Input");
+                        break;
+                    }
+
+                    if (found != null){
+                        System.out.println("Vehicle Found : ");
+                        for (Vehicle V_ : found){
+                            System.out.println("Id : " + V_.getId() + " Model : " + V_.getModel());
+                        }
                     }
                     break;
 
