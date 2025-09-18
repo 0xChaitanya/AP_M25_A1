@@ -17,7 +17,7 @@ and test persistence with the sample CSV.**
 <br>
 Steps to run the program: <br>
 Step1: Go to the main directory which is AP_M25_A1 class <br>
-Step2: On the terminal, type "javac Main.java"<br> (This will compile all the classes, interfaces in this project)
+Step2: On the terminal, type "javac Main.java"<br> (This will compile all the classes, interfaces in this project) <br>
 Step3: Now, type "java Main" (This will start the project) <br> <br>
 
 **Q. Describe how to use the CLI and demo features (e.g., add vehicles, simulate jour-
