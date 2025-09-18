@@ -1,6 +1,10 @@
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 import AbstractClasses.*;
 public class Persistence{
     public void safeToFile(FleetManager details, String filename) throws IOException{
@@ -13,5 +17,15 @@ public class Persistence{
         }
     }
 
-    public void loadFromFile(String filename){};
+    public List<List<String>> loadFromFile(String filename) throws IOException{
+        List<List<String>> data = new ArrayList<List<String>>();
+        FileReader readData = new FileReader(filename + ".csv");
+        Scanner read = new Scanner(readData);
+
+        while (read.hasNextLine()){
+            String
+        }
+
+        return data;
+    }
 }
