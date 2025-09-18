@@ -15,8 +15,8 @@ public class FleetManager {
             if (V.getId().equals(v.getId())){
                 throw new InvalidOperationException("Duplicate IDs");
             }
-            fleet.add(v);
         }
+        fleet.add(v);
     }
 
     public void removeVehicle(String id) throws InvalidOperationException{
@@ -259,6 +259,7 @@ public class FleetManager {
                 carD.add(car.needsMaintenance() ? "Yes" : "No");
                 carD.add("NA");
                 carD.add("NA");
+                result.add(carD);
             }
             else if (V instanceof Bus){
                 Bus bus = (Bus) V;
@@ -273,6 +274,7 @@ public class FleetManager {
                 busD.add(bus.needsMaintenance() ? "Yes" : "No");
                 busD.add("NA");
                 busD.add("NA");
+                result.add(busD);
             }
             else if (V instanceof Airplane){
                 Airplane airplane = (Airplane) V;
@@ -286,6 +288,7 @@ public class FleetManager {
                 airplaneD.add(airplane.needsMaintenance() ? "Yes" : "No");
                 airplaneD.add("NA");
                 airplaneD.add(String.format("%f", airplane.getMaxAltitude()));
+                result.add(airplaneD);
 
             }
             else if (V instanceof CargoShip){
@@ -300,6 +303,7 @@ public class FleetManager {
                 cargoshipD.add(cargoship.needsMaintenance() ? "Yes" : "No");
                 cargoshipD.add(cargoship.getFueled() ? "Yes" : "No");
                 cargoshipD.add("NA");
+                result.add(cargoshipD);
             }
             else{
                 Truck truck = (Truck) V;
@@ -313,13 +317,9 @@ public class FleetManager {
                 truckD.add(truck.needsMaintenance() ? "Yes" : "No");
                 truckD.add("NA");
                 truckD.add("NA");
+                result.add(truckD);
             }
 
-            result.add(carD);
-            result.add(busD);
-            result.add(airplaneD);
-            result.add(cargoshipD);
-            result.add(truckD);
         }
         return result;
     }

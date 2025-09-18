@@ -10,11 +10,13 @@ public class Persistence{
     public void safeToFile(FleetManager details, String filename) throws IOException{
         FileWriter vehicleDetails = new FileWriter(filename);
 
-        vehicleDetails.write("Category,ID,Model,Max Speed,FuelLevel,Current Passengers,Current Cargo,Current Mileage,Maintenance Needed,Has Sail,Maximum Altitude");
+        vehicleDetails.write("Category,ID,Model,Max Speed,FuelLevel,Current Passengers,Current Cargo,Current Mileage,Maintenance Needed,Has Sail,Maximum Altitude\n");
 
         for (List<String> lst : details.getVehicleDetails()){
-            vehicleDetails.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", lst.get(0), lst.get(1), lst.get(2), lst.get(3), lst.get(4), lst.get(5), lst.get(6), lst.get(7), lst.get(8), lst.get(9), lst.get(10)));
+            vehicleDetails.write(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n", lst.get(0), lst.get(1), lst.get(2), lst.get(3), lst.get(4), lst.get(5), lst.get(6), lst.get(7), lst.get(8), lst.get(9), lst.get(10)));
         }
+
+        vehicleDetails.close();
     }
 
     public List<List<String>> loadFromFile(String filename) throws IOException{

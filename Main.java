@@ -8,12 +8,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InvalidOperationException, IOException, NullPointerException {
-
-
         Scanner input = new Scanner(System.in);
         FleetManager vehicles = new FleetManager();
         Persistence fileHandler = new Persistence();
-
 
         //Variables in USE
         int choice;
@@ -171,7 +168,6 @@ public class Main {
 
                     vehicles.refuelAll(amount);
                     break;
-
                 case 5:
                     vehicles.maintainAll();
 
@@ -209,6 +205,7 @@ public class Main {
                     break;
 
                 case 9:
+                    System.out.println(vehicles.totalMileage());
                     System.out.println(
                             "Which vehicle do you want to search by type : \n" +
                                     "1. Airplane\n" +
@@ -218,17 +215,17 @@ public class Main {
                                     "5. Truck"
                     );
 
-                    choice = input.nextInt();
+                    int choice_ = input.nextInt();
 
-                    if (choice == 1) {
+                    if (choice_ == 1) {
                         vehicles.searchByType(Airplane.class);
-                    } else if (choice == 2) {
+                    } else if (choice_ == 2) {
                         vehicles.searchByType(Bus.class);
-                    } else if (choice == 3) {
-                        vehicles.searchByType(Car.class);
-                    } else if (choice == 4) {
+                    } else if (choice_ == 3) {
+                        System.out.println(vehicles.searchByType(Car.class));
+                    } else if (choice_ == 4) {
                         vehicles.searchByType(CargoShip.class);
-                    } else if (choice == 5) {
+                    } else if (choice_ == 5) {
                         vehicles.searchByType(Truck.class);
                     } else {
                         System.out.println("Invalid Input");
@@ -249,6 +246,11 @@ public class Main {
                 default:
                     System.out.println("Invalid input, try again.");
             }
+
+            if (choice == 11){
+            break;
         }
+        }
+
     }
 }
