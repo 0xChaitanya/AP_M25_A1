@@ -167,6 +167,8 @@ public class Main {
                     amount = input.nextDouble();
 
                     vehicles.refuelAll(amount);
+
+                    System.out.println("All vehicles refueled successfully");
                     break;
                 case 5:
                     vehicles.maintainAll();
@@ -242,7 +244,7 @@ public class Main {
                 case 10:
                     System.out.println("The following vehicles needs maintenance");
                     for (Vehicle lst : vehicles.getVehiclesNeedingMaintenance()) {
-                        lst.getId();
+                        System.out.println(lst.getId());
                     }
                     break;
 
