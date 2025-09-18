@@ -213,8 +213,8 @@ public class Main {
                             cargoShip = new CargoShip(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Boolean.parseBoolean(lst.get(9)));
                             vehicles.addVehicle(cargoShip);
                         }
-                        System.out.println("Successfully loaded data from the file.");
                     }
+                    System.out.println("Successfully loaded data from the file.");
                     break;
 
                 case 9:
