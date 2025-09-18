@@ -67,7 +67,7 @@ public class Main {
                     if (choiceVehicle == 1) {
                         System.out.println("Enter ID : ");
                         id = input.next();
-                        System.out.println("Enter Model : ");
+                        System.out.println("Enter Moel : ");
                         model = input.next();
                         System.out.println("Enter Maximum Speed : ");
                         maxSpeed = input.nextDouble();

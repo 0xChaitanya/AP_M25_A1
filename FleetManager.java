@@ -282,6 +282,7 @@ public class FleetManager {
                 airplaneD.add(airplane.getId());
                 airplaneD.add(airplane.getModel());
                 airplaneD.add(String.format("%f", airplane.getMaxSpeed()));
+                airplaneD.add(String.format("%f", airplane.getFuelLevel()));
                 airplaneD.add(String.format("%d", airplane.getCurrentPassengers()));
                 airplaneD.add(String.format("%f", airplane.getCurrentCargo()));
                 airplaneD.add(String.format("%f", airplane.getCurrentMileage()));
@@ -297,6 +298,7 @@ public class FleetManager {
                 cargoshipD.add(cargoship.getId());
                 cargoshipD.add(cargoship.getModel());
                 cargoshipD.add(String.format("%f", cargoship.getMaxSpeed()));
+                cargoshipD.add(String.format("%f", cargoship.getFuelLevel()));
                 cargoshipD.add("NA");
                 cargoshipD.add(String.format("%f", cargoship.getCurrentCargo()));
                 cargoshipD.add(String.format("%f", cargoship.getCurrentMileage()));
@@ -311,6 +313,7 @@ public class FleetManager {
                 truckD.add(truck.getId());
                 truckD.add(truck.getModel());
                 truckD.add(String.format("%f", truck.getMaxSpeed()));
+                truckD.add(String.format("%f", truck.getFuelLevel()));
                 truckD.add("NA");
                 truckD.add(String.format("%f", truck.getCurrentCargo()));
                 truckD.add(String.format("%f", truck.getCurrentMileage()));
