@@ -5,5 +5,6 @@ public class Persistence extends FleetManager{
         FileWriter vehicleDetails = new FileWriter(filename + ".csv");
 
         vehicleDetails.write("Category,ID,FuelLevel,Current Passengers,Current Cargo,Maintenance Needed,Has Sail");
+
     }
 }

@@ -233,13 +233,19 @@ public class FleetManager {
     public List<List<String>> getVehicleDetails(){ //I have added this method because I want details of all vehicles to store in the CSV file
         List<List<String>> result = new ArrayList<List<String>>();
 
-        List<String> carD = new ArrayList<>();
-        List<String> busD = new ArrayList<>();
-        List<String> airplaneD = new ArrayList<>();
-        List<String> cargoshipD = new ArrayList<>();
-        List<String> truckD = new ArrayList<>();
+        List<String> carD;
+        List<String> busD;
+        List<String> airplaneD;
+        List<String> cargoshipD;
+        List<String> truckD;
 
         for (Vehicle V : fleet){
+            carD = new ArrayList<String>();
+            busD = new ArrayList<String>();
+            airplaneD = new ArrayList<String>();
+            cargoshipD = new ArrayList<String>();
+            truckD = new ArrayList<String>();
+
             if (V instanceof Car){
                 Car car = (Car) V;
                 carD.add("Car");
@@ -288,14 +294,13 @@ public class FleetManager {
                 truckD.add(truck.needsMaintenance() ? "Yes" : "No");
                 truckD.add("NA");
             }
+
+            result.add(carD);
+            result.add(busD);
+            result.add(airplaneD);
+            result.add(cargoshipD);
+            result.add(truckD);
         }
-
-        result.add(carD);
-        result.add(busD);
-        result.add(airplaneD);
-        result.add(cargoshipD);
-        result.add(truckD);
-
         return result;
     }
 }
