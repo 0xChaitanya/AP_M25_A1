@@ -231,11 +231,11 @@ public class FleetManager {
     }
 
     public List<List<String>> getVehicleDetails(){ //I have added this method because I want details of all vehicles to store in the CSV file
-        List<List<String>> result = new ArrayList<>();
+        List<List<String>> result = new ArrayList<List<String>>();
 
         List<String> carD = new ArrayList<>();
         List<String> busD = new ArrayList<>();
-        List<String> aiplaneD = new ArrayList<>();
+        List<String> airplaneD = new ArrayList<>();
         List<String> cargoshipD = new ArrayList<>();
         List<String> truckD = new ArrayList<>();
 
@@ -247,31 +247,54 @@ public class FleetManager {
                 carD.add(String.format("%f", car.getFuelLevel()));
                 carD.add(String.format("%d", car.getCurrentPassengers()));
                 carD.add("NA");
-                if (car.needsMaintenance()){
-                    carD.add("Yes");
-                }
-                else{
-                    carD.add("No");
-                }
+                carD.add(car.needsMaintenance() ? "Yes" : "No");
                 carD.add("NA");
             }
             else if (V instanceof Bus){
                 Bus bus = (Bus) V;
-
+                busD.add("Bus");
+                busD.add(bus.getId());
+                busD.add(String.format("%f", bus.getFuelLevel()));
+                busD.add(String.format("%d", bus.getCurrentPassengers()));
+                busD.add(String.format("%f", bus.getCurrentCargo()));
+                busD.add(bus.needsMaintenance() ? "Yes" : "No");
+                busD.add("NA");
             }
             else if (V instanceof Airplane){
                 Airplane airplane = (Airplane) V;
+                airplaneD.add("Airplane");
+                airplaneD.add(airplane.getId());
+                airplaneD.add(String.format("%d", airplane.getCurrentPassengers()));
+                airplaneD.add(String.format("%f", airplane.getCurrentCargo()));
+                airplaneD.add(airplane.needsMaintenance() ? "Yes" : "No");
+                airplaneD.add("NA");
 
             }
             else if (V instanceof CargoShip){
                 CargoShip cargoship = (CargoShip) V;
-
+                cargoshipD.add("Cargo Ship");
+                cargoshipD.add(cargoship.getId());
+                cargoshipD.add("NA");
+                cargoshipD.add(String.format("%f", cargoship.getCurrentCargo()));
+                cargoshipD.add(cargoship.needsMaintenance() ? "Yes" : "No");
+                cargoshipD.add(cargoship.getFueled() ? "Yes" : "No");
             }
             else{
                 Truck truck = (Truck) V;
-
+                truckD.add("Truck");
+                truckD.add(truck.getId());
+                truckD.add("NA");
+                truckD.add(String.format("%f", truck.getCurrentCargo()));
+                truckD.add(truck.needsMaintenance() ? "Yes" : "No");
+                truckD.add("NA");
             }
         }
+
+        result.add(carD);
+        result.add(busD);
+        result.add(airplaneD);
+        result.add(cargoshipD);
+        result.add(truckD);
 
         return result;
     }
