@@ -303,5 +303,33 @@ public class FleetManager {
         }
         return result;
     }
+
+    /***
+     * refeulAll method is added to access it from class Main and refule all vehicles. Practically, it doesn't make sense to refuel all vehicles at once because each have different fuel capacity.
+     */
+    public void refuelAll(double amount) throws InvalidOperationException{
+        for (Vehicle V : fleet){
+            if (V instanceof Car){
+                Car car = (Car) V;
+                car.refuel(amount);
+            }
+            else if (V instanceof Bus){
+                Bus bus = (Bus) V;
+                bus.refuel(amount);
+            }
+            else if (V instanceof Airplane){
+                Airplane airplane = (Airplane) V;
+                airplane.refuel(amount);
+            }
+            else if (V instanceof CargoShip){
+                CargoShip cargoship = (CargoShip) V;
+                cargoship.refuel(amount);
+            }
+            else{
+                Truck truck = (Truck) V;
+                truck.refuel(amount);
+            }
+        }
+    }
 }
 

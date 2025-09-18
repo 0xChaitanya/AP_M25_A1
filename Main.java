@@ -1,12 +1,13 @@
 import java.util.Scanner;
 import ConcreteClasses.*;
 import Exceptions.*;
+import Interfaces.*;
 import AbstractClasses.*;
 import java.io.IOException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws InvalidOperationException, IOException {
+    public static void main(String[] args) throws InvalidOperationException, IOException, NullPointerException {
         Scanner input = new Scanner(System.in);
         FleetManager vehicles = new FleetManager();
         Persistence fileHandler = new Persistence();
@@ -39,6 +40,14 @@ public class Main {
         boolean hasSailed;
         String vID;
         double distance;
+        double amount;
+        Vehicle type;
+
+        Airplane airplane;
+        Bus bus;
+        Car car;
+        CargoShip cargoShip;
+        Truck truck;
 
         switch (choice){
             case 1:
@@ -64,7 +73,7 @@ public class Main {
                     System.out.println("Enter Maximum Altitude : ");
                     maxAltitude = input.nextDouble();
 
-                    Airplane airplane = new Airplane(id, model, maxSpeed, currentMileage, maxAltitude);
+                    airplane = new Airplane(id, model, maxSpeed, currentMileage, maxAltitude);
                     vehicles.addVehicle(airplane);
                 }
                 else if (choiceVehicle == 2){
@@ -81,7 +90,7 @@ public class Main {
                     System.out.println("Enter Current Cargo Number : ");
                     currentCargo = input.nextDouble();
 
-                    Bus bus = new Bus(id, model, maxSpeed, currentMileage, currentPassenger ,currentCargo);
+                    bus = new Bus(id, model, maxSpeed, currentMileage, currentPassenger ,currentCargo);
                     vehicles.addVehicle(bus);
                 }
                 else if (choiceVehicle== 3){
@@ -96,7 +105,7 @@ public class Main {
                     System.out.println("Enter Current Passengers Number : ");
                     currentPassenger = input.nextInt();
 
-                    Car car = new Car(id, model, maxSpeed, currentMileage, currentPassenger);
+                    car = new Car(id, model, maxSpeed, currentMileage, currentPassenger);
                     vehicles.addVehicle(car);
                 }
                 else if (choiceVehicle == 4){
@@ -117,7 +126,7 @@ public class Main {
                     else{
                         hasSailed = false;
                     }
-                    CargoShip cargo = new CargoShip(id, model, maxSpeed, currentMileage, hasSailed);
+                    cargo = new CargoShip(id, model, maxSpeed, currentMileage, hasSailed);
                     vehicles.addVehicle(cargo);
                 }
                 else if (choiceVehicle == 5){
@@ -132,7 +141,7 @@ public class Main {
                     System.out.println("Enter Current Cargo Number : ");
                     currentCargo = input.nextDouble();
 
-                    Truck truck = new Truck(id, model, maxSpeed, currentMileage, currentCargo);
+                    truck = new Truck(id, model, maxSpeed, currentMileage, currentCargo);
                     vehicles.addVehicle(truck);
                 }
                 else{
@@ -147,7 +156,7 @@ public class Main {
                 vID = input.next();
 
                 vehicles.removeVehicle(vID);
-                System.out.println("Vehicle Removed")
+                System.out.println("Vehicle Removed");
                 break;
 
             case 3:
@@ -157,7 +166,10 @@ public class Main {
                 break;
 
             case 4:
+                System.out.println("Enter the fuel amount : ");
+                amount = input.nextDouble();
 
+                vehicles.refuelAll(amount);
                 break;
 
             case 5:
@@ -172,7 +184,7 @@ public class Main {
 
             case 7:
                 fileHandler.safeToFile(vehicles, "Vehicle Details");
-                System.out.println("Detailes saved in file successfully");
+                System.out.println("Details saved in file successfully");
                 break;
 
             case 8:
@@ -180,8 +192,35 @@ public class Main {
                 break;
 
             case 9:
+                System.out.println(
+                        "Which vehicle do you want to search by type : \n" +
+                                "1. Airplane\n" +
+                                "2. Bus\n" +
+                                "3. Car\n" +
+                                "4. Cargo Ship\n" +
+                                "5. Truck"
+                );
 
-                vehicles.searchByType();
+                choice = input.nextInt();
+
+                if (choice == 1){
+                    vehicles.searchByType(Airplane.class);
+                }
+                else if (choice == 2){
+                    vehicles.searchByType(Bus.class);
+                }
+                else if (choice == 3){
+                    vehicles.searchByType(Car.class);
+                }
+                else if (choice == 4){
+                    vehicles.searchByType(CargoShip.class);
+                }
+                else if (choice == 5){
+                    vehicles.searchByType(Truck.class);
+                }
+                else{
+                    System.out.println("Invalid Input");
+                }
                 break;
 
             case 10:
