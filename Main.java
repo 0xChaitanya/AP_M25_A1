@@ -31,6 +31,8 @@ public class Main {
         double maxAltitude;
         int currentPassenger;
         double currentCargo;
+        String sailed;
+        boolean hasSailed;
 
         switch (choice){
             case 1:
@@ -77,12 +79,59 @@ public class Main {
                     vehicles.addVehicle(bus);
                 }
                 else if (choiceVehicle== 3){
+                    System.out.println("Enter ID : ");
+                    id = input.next();
+                    System.out.println("Enter Model : ");
+                    model = input.next();
+                    System.out.println("Enter Maximum Speed : ");
+                    maxSpeed = input.nextDouble();
+                    System.out.println("Enter Current Mileage : ");
+                    currentMileage = input.nextDouble();
+                    System.out.println("Enter Current Passengers Number : ");
+                    currentPassenger = input.nextInt();
 
-//                    public Bus(String id, String model, double maxSpeed, double currentMileage, int currentPassengers ,double currentCargo){
-//                super(id, model, maxSpeed, currentMileage, 4);
-//                this.currentPassengers = currentPassengers;
-//                this.currentCargo = currentCargo;
-            }
+                    Car car = new Car(id, model, maxSpeed, currentMileage, currentPassenger);
+                    vehicles.addVehicle(car);
+                }
+                else if (choiceVehicle == 4){
+                    System.out.println("Enter ID : ");
+                    id = input.next();
+                    System.out.println("Enter Model : ");
+                    model = input.next();
+                    System.out.println("Enter Maximum Speed : ");
+                    maxSpeed = input.nextDouble();
+                    System.out.println("Enter Current Mileage : ");
+                    currentMileage = input.nextDouble();
+                    System.out.println("Has the cargo Sailed?(T/F) : ");
+                    sailed = input.next();
+
+                    if (sailed == "T"){
+                        hasSailed = true;
+                    }
+                    else{
+                        hasSailed = false;
+                    }
+                    CargoShip cargo = new CargoShip(id, model, maxSpeed, currentMileage, hasSailed);
+                    vehicles.addVehicle(cargo);
+                }
+                else if (choiceVehicle == 5){
+                    System.out.println("Enter ID : ");
+                    id = input.next();
+                    System.out.println("Enter Model : ");
+                    model = input.next();
+                    System.out.println("Enter Maximum Speed : ");
+                    maxSpeed = input.nextDouble();
+                    System.out.println("Enter Current Mileage : ");
+                    currentMileage = input.nextDouble();
+                    System.out.println("Enter Current Cargo Number : ");
+                    currentCargo = input.nextDouble();
+
+                    Truck truck = new Truck(id, model, maxSpeed, currentMileage, currentCargo);
+                    vehicles.addVehicle(truck);
+                }
+                else{
+                    System.out.println("Invalid entry, try again...");
+                }
 
                 break;
             case 2:

@@ -42,7 +42,7 @@ public class CargoShip extends WaterVehicle implements FuelConsumable, CargoCarr
         return fuelLevel;
     }
 
-    public double consumeFuel(double amount) throws InsufficientFuelException{
+    public double consumeFuel(double distance) throws InsufficientFuelException{
         if (fuelLevel < (1 / calculateFuelEfficiency()) * distance){
             throw new InsufficientFuelException("Insufficient Fuel");
         }
