@@ -1,7 +1,7 @@
 # AP_M25_A1
 Transportation Fleet Management System, Advanced Programming Assignment-1
 
-Sample CSV File: vehicleDetails.csv
+**_Sample CSV File: vehicleDetails.csv_**
 
 **Q. Explain how your code demonstrates inheritance, polymorphism, abstract classes,
 and interfaces.**
@@ -14,8 +14,7 @@ and interfaces.**
 <br>
 <br>
 
-Q. Provide clear instructions to compile (e.g., javac *.java), run (e.g., java Main), and test persistence with the sample CSV. <br>
-
+**Q. Provide clear instructions to compile (e.g., javac \*.java), run (e.g., java Main), and test persistence with the sample CSV.** <br>
 Steps to run the program: <br>
 Step1: Go to the main directory which is AP_M25_A1 class <br>
 Step2: On the terminal, type "javac Main.java" (This will compile all the classes, interfaces in this project) <br>
