@@ -22,6 +22,3 @@ Step3: Now, type "java Main" (This will start the project) <br> <br>
 **Q. Describe how to use the CLI and demo features (e.g., add vehicles, simulate jour-
 ney, save/load).** <br>
 Once the project starts, you will see a serialised menu, use the serial numbers to perform the actions give on the right of the serial number. <br>
-
-– Include a brief walkthrough of running the demo and expected output.
-
