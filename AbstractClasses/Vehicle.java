@@ -33,6 +33,14 @@ public abstract class Vehicle implements Comparable<Vehicle>{
         return this.id;
     }
 
+    /***
+     * I have added this method because we have to retrieve the data from csv file and load it again.
+     * @return model
+     */
+    public String getModel(){
+        return this.model;
+    }
+
     /**
      * getter method for maxSpeed
      * @return maxSpeed;

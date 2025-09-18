@@ -250,9 +250,12 @@ public class FleetManager {
                 Car car = (Car) V;
                 carD.add("Car");
                 carD.add(car.getId());
+                carD.add(car.getModel());
+                carD.add(String.format("%f", car.getMaxSpeed()));
                 carD.add(String.format("%f", car.getFuelLevel()));
                 carD.add(String.format("%d", car.getCurrentPassengers()));
                 carD.add("NA");
+                carD.add(String.format("%f", car.getCurrentMileage()));
                 carD.add(car.needsMaintenance() ? "Yes" : "No");
                 carD.add("NA");
             }
@@ -260,9 +263,12 @@ public class FleetManager {
                 Bus bus = (Bus) V;
                 busD.add("Bus");
                 busD.add(bus.getId());
+                busD.add(bus.getModel());
+                busD.add(String.format("%f", bus.getMaxSpeed()));
                 busD.add(String.format("%f", bus.getFuelLevel()));
                 busD.add(String.format("%d", bus.getCurrentPassengers()));
                 busD.add(String.format("%f", bus.getCurrentCargo()));
+                busD.add(String.format("%f", bus.getCurrentMileage()));
                 busD.add(bus.needsMaintenance() ? "Yes" : "No");
                 busD.add("NA");
             }
@@ -270,8 +276,11 @@ public class FleetManager {
                 Airplane airplane = (Airplane) V;
                 airplaneD.add("Airplane");
                 airplaneD.add(airplane.getId());
+                airplaneD.add(airplane.getModel());
+                airplaneD.add(String.format("%f", airplane.getMaxSpeed()));
                 airplaneD.add(String.format("%d", airplane.getCurrentPassengers()));
                 airplaneD.add(String.format("%f", airplane.getCurrentCargo()));
+                airplaneD.add(String.format("%f", airplane.getCurrentMileage()));
                 airplaneD.add(airplane.needsMaintenance() ? "Yes" : "No");
                 airplaneD.add("NA");
 
@@ -280,8 +289,11 @@ public class FleetManager {
                 CargoShip cargoship = (CargoShip) V;
                 cargoshipD.add("Cargo Ship");
                 cargoshipD.add(cargoship.getId());
+                cargoshipD.add(cargoship.getModel());
+                cargoshipD.add(String.format("%f", cargoship.getMaxSpeed()));
                 cargoshipD.add("NA");
                 cargoshipD.add(String.format("%f", cargoship.getCurrentCargo()));
+                cargoshipD.add(String.format("%f", cargoship.getCurrentMileage()));
                 cargoshipD.add(cargoship.needsMaintenance() ? "Yes" : "No");
                 cargoshipD.add(cargoship.getFueled() ? "Yes" : "No");
             }
@@ -289,8 +301,11 @@ public class FleetManager {
                 Truck truck = (Truck) V;
                 truckD.add("Truck");
                 truckD.add(truck.getId());
+                truckD.add(truck.getModel());
+                truckD.add(String.format("%f", truck.getMaxSpeed()));
                 truckD.add("NA");
                 truckD.add(String.format("%f", truck.getCurrentCargo()));
+                truckD.add(String.format("%f", truck.getCurrentMileage()));
                 truckD.add(truck.needsMaintenance() ? "Yes" : "No");
                 truckD.add("NA");
             }

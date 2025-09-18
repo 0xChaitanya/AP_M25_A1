@@ -183,12 +183,20 @@ public class Main {
                 break;
 
             case 7:
-                fileHandler.safeToFile(vehicles, "Vehicle Details");
+                fileHandler.safeToFile(vehicles, "vehicleDetails.csv");
                 System.out.println("Details saved in file successfully");
                 break;
 
             case 8:
-                //Load Fleet
+                for (List<String> lst : fileHandler.loadFromFile("vehicleDetails.csv")){
+                    if (lst.get(0) == "Car"){
+                        car = new Car(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)),Integer.parseInt(lst.get(5)));
+                        vehicles.addVehicle(car);
+                    }
+                    else if (lst.get(0) == "Bus"){
+
+                    }
+                }
                 break;
 
             case 9:
