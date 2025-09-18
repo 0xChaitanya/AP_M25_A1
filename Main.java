@@ -12,20 +12,6 @@ public class Main {
         FleetManager vehicles = new FleetManager();
         Persistence fileHandler = new Persistence();
 
-        System.out.println(
-                "Menu:\n " +
-                "1. Add Vehicle\n" +
-                "2. Remove Vehicle\n" +
-                "3. Start Journey\n" +
-                "4. Refuel All\n" +
-                "5. Perform Maintenance\n" +
-                "6. Generate Report\n" +
-                "7. Save Fleet\n" +
-                "8. Load Fleet\n" +
-                "9. Search by Type\n" +
-                "10. List Vehicles Needing Maintenance\n" +
-                "11. Exit"
-        );
 
         //Variables in USE
         int choice = input.nextInt();
@@ -48,6 +34,21 @@ public class Main {
         Car car;
         CargoShip cargoShip;
         Truck truck;
+
+        System.out.println(
+                "Menu:\n " +
+                "1. Add Vehicle\n" +
+                "2. Remove Vehicle\n" +
+                "3. Start Journey\n" +
+                "4. Refuel All\n" +
+                "5. Perform Maintenance\n" +
+                "6. Generate Report\n" +
+                "7. Save Fleet\n" +
+                "8. Load Fleet\n" +
+                "9. Search by Type\n" +
+                "10. List Vehicles Needing Maintenance\n" +
+                "11. Exit"
+        );
 
         switch (choice){
             case 1:
