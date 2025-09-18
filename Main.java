@@ -1,11 +1,15 @@
 import java.util.Scanner;
 import ConcreteClasses.*;
 import Exceptions.*;
+import AbstractClasses.*;
+import java.io.IOException;
+import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws InvalidOperationException {
+    public static void main(String[] args) throws InvalidOperationException, IOException {
         Scanner input = new Scanner(System.in);
         FleetManager vehicles = new FleetManager();
+        Persistence fileHandler = new Persistence();
 
         System.out.println(
                 "Menu:\n " +
@@ -33,6 +37,8 @@ public class Main {
         double currentCargo;
         String sailed;
         boolean hasSailed;
+        String vID;
+        double distance;
 
         switch (choice){
             case 1:
@@ -133,29 +139,64 @@ public class Main {
                     System.out.println("Invalid entry, try again...");
                 }
 
+                System.out.println("Vehicle Added");
                 break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
-                break;
-            case 7:
-                break;
-            case 8:
-                break;
-            case 9:
-                break;
-            case 10:
-                break;
-            case 11:
-                break;
-        default:
-        }
 
+            case 2:
+                System.out.println("Enter Vehicle ID to remove : ");
+                vID = input.next();
+
+                vehicles.removeVehicle(vID);
+                System.out.println("Vehicle Removed")
+                break;
+
+            case 3:
+                System.out.println("Enter the distance to start the journey : ");
+                distance = input.nextDouble();
+                vehicles.startAllJourney(distance);
+                break;
+
+            case 4:
+
+                break;
+
+            case 5:
+                vehicles.maintainAll();
+
+                System.out.println("Maintenance done for all vehicles");
+                break;
+
+            case 6:
+                System.out.println(vehicles.generateReport());
+                break;
+
+            case 7:
+                fileHandler.safeToFile(vehicles, "Vehicle Details");
+                System.out.println("Detailes saved in file successfully");
+                break;
+
+            case 8:
+                //Load Fleet
+                break;
+
+            case 9:
+
+                vehicles.searchByType();
+                break;
+
+            case 10:
+                System.out.println("The following vehicles needs maintenance");
+                for (Vehicle lst : vehicles.getVehiclesNeedingMaintenance()){
+                    lst.getId();
+                }
+                break;
+
+            case 11:
+                System.out.println("Exiting...");
+                break;
+
+        default:
+            System.out.println("Invalid input, try again.");
+        }
     }
 }
