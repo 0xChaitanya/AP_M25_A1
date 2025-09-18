@@ -189,12 +189,25 @@ public class Main {
 
             case 8:
                 for (List<String> lst : fileHandler.loadFromFile("vehicleDetails.csv")){
-                    if (lst.get(0) == "Car"){
+                    if (lst.get(0).equals("Car")){
                         car = new Car(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)),Integer.parseInt(lst.get(5)));
                         vehicles.addVehicle(car);
                     }
-                    else if (lst.get(0) == "Bus"){
-
+                    else if (lst.get(0).equals("Bus")){
+                        bus = new Bus(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Integer.parseInt(lst.get(5)) ,Double.parseDouble(lst.get(6)));
+                        vehicles.addVehicle(bus);
+                    }
+                    else if (lst.get(0).equals("Airplane")){
+                        airplane = new Airplane(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Double.parseDouble(lst.get(10)));
+                        vehicles.addVehicle(airplane);
+                    }
+                    else if (lst.get(0).equals("Truck")){
+                        truck = new Truck(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Double.parseDouble(lst.get(6)));
+                        vehicles.addVehicle(truck);
+                    }
+                    else{
+                        cargoShip = new CargoShip(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Boolean.parseBoolean(lst.get(9)));
+                        vehicles.addVehicle(cargoShip);
                     }
                 }
                 break;

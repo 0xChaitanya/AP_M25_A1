@@ -258,6 +258,7 @@ public class FleetManager {
                 carD.add(String.format("%f", car.getCurrentMileage()));
                 carD.add(car.needsMaintenance() ? "Yes" : "No");
                 carD.add("NA");
+                carD.add("NA");
             }
             else if (V instanceof Bus){
                 Bus bus = (Bus) V;
@@ -271,6 +272,7 @@ public class FleetManager {
                 busD.add(String.format("%f", bus.getCurrentMileage()));
                 busD.add(bus.needsMaintenance() ? "Yes" : "No");
                 busD.add("NA");
+                busD.add("NA");
             }
             else if (V instanceof Airplane){
                 Airplane airplane = (Airplane) V;
@@ -283,6 +285,7 @@ public class FleetManager {
                 airplaneD.add(String.format("%f", airplane.getCurrentMileage()));
                 airplaneD.add(airplane.needsMaintenance() ? "Yes" : "No");
                 airplaneD.add("NA");
+                airplaneD.add(String.format("%f", airplane.getMaxAltitude()));
 
             }
             else if (V instanceof CargoShip){
@@ -296,6 +299,7 @@ public class FleetManager {
                 cargoshipD.add(String.format("%f", cargoship.getCurrentMileage()));
                 cargoshipD.add(cargoship.needsMaintenance() ? "Yes" : "No");
                 cargoshipD.add(cargoship.getFueled() ? "Yes" : "No");
+                cargoshipD.add("NA");
             }
             else{
                 Truck truck = (Truck) V;
@@ -307,6 +311,7 @@ public class FleetManager {
                 truckD.add(String.format("%f", truck.getCurrentCargo()));
                 truckD.add(String.format("%f", truck.getCurrentMileage()));
                 truckD.add(truck.needsMaintenance() ? "Yes" : "No");
+                truckD.add("NA");
                 truckD.add("NA");
             }
 
