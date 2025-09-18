@@ -78,6 +78,7 @@ public class Main {
 
                         airplane = new Airplane(id, model, maxSpeed, currentMileage, maxAltitude);
                         vehicles.addVehicle(airplane);
+                        System.out.println("Vehicle Added");
                     } else if (choiceVehicle == 2) {
                         System.out.println("Enter ID : ");
                         id = input.next();
@@ -94,6 +95,7 @@ public class Main {
 
                         bus = new Bus(id, model, maxSpeed, currentMileage, currentPassenger, currentCargo);
                         vehicles.addVehicle(bus);
+                        System.out.println("Vehicle Added");
                     } else if (choiceVehicle == 3) {
                         System.out.println("Enter ID : ");
                         id = input.next();
@@ -108,6 +110,7 @@ public class Main {
 
                         car = new Car(id, model, maxSpeed, currentMileage, currentPassenger);
                         vehicles.addVehicle(car);
+                        System.out.println("Vehicle Added");
                     } else if (choiceVehicle == 4) {
                         System.out.println("Enter ID : ");
                         id = input.next();
@@ -127,6 +130,7 @@ public class Main {
                         }
                         cargoShip = new CargoShip(id, model, maxSpeed, currentMileage, hasSailed);
                         vehicles.addVehicle(cargoShip);
+                        System.out.println("Vehicle Added");
                     } else if (choiceVehicle == 5) {
                         System.out.println("Enter ID : ");
                         id = input.next();
@@ -141,11 +145,11 @@ public class Main {
 
                         truck = new Truck(id, model, maxSpeed, currentMileage, currentCargo);
                         vehicles.addVehicle(truck);
+                        System.out.println("Vehicle Added");
                     } else {
-                        System.out.println("Invalid entry, try again...");
+                        System.out.println("Exception: Invalid entry, try again...");
                     }
 
-                    System.out.println("Vehicle Added");
                     break;
 
                 case 2:
@@ -253,7 +257,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Invalid input, try again.");
+                    System.out.println("Exception: Invalid input, try again.");
             }
 
             if (choice == 11){
