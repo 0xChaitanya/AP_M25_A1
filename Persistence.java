@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import AbstractClasses.*;
 public class Persistence{
     public void safeToFile(FleetManager details, String filename) throws IOException{
-        FileWriter vehicleDetails = new FileWriter(filename + ".csv");
+        FileWriter vehicleDetails = new FileWriter(filename);
 
         vehicleDetails.write("Category,ID,Model,Max Speed,FuelLevel,Current Passengers,Current Cargo,Current Mileage,Maintenance Needed,Has Sail,Maximum Altitude");
 
@@ -21,7 +21,7 @@ public class Persistence{
         List<List<String>> loadData = new ArrayList<List<String>>();
         List<String> lst;
 
-        FileReader readData = new FileReader(filename + ".csv");
+        FileReader readData = new FileReader(filename);
         Scanner read = new Scanner(readData);
 
         while (read.hasNextLine()){
