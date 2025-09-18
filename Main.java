@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws InvalidOperationException, IOException, NullPointerException {
+    public static void main(String[] args) throws InvalidOperationException, IOException, NullPointerException, ClassCastException {
         Scanner input = new Scanner(System.in);
         FleetManager vehicles = new FleetManager();
         Persistence fileHandler = new Persistence();
@@ -184,7 +184,14 @@ public class Main {
                     break;
 
                 case 8:
+                    boolean header = true;
+
                     for (List<String> lst : fileHandler.loadFromFile("vehicleDetails.csv")) {
+                        System.out.println(lst);
+                        if (header == true){
+                            header = false;
+                            continue;
+                        }
                         if (lst.get(0).equals("Car")) {
                             car = new Car(lst.get(1), lst.get(2), Double.parseDouble(lst.get(3)), Double.parseDouble(lst.get(7)), Integer.parseInt(lst.get(5)));
                             vehicles.addVehicle(car);

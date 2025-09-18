@@ -20,13 +20,15 @@ public class FleetManager {
     }
 
     public void removeVehicle(String id) throws InvalidOperationException{
+        boolean flag = false;
         for (Vehicle V : fleet){
             if (V.getId().equals(id)){
                 fleet.remove(V);
+                flag = true;
                 break;
             }
         }
-        throw new InvalidOperationException("ID not found.");
+        if (!flag) throw new InvalidOperationException("ID not found.");
     }
 
     public void startAllJourney(double distance) throws InvalidOperationException{
