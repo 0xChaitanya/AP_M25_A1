@@ -20,7 +20,8 @@ Step1: Go to the main directory which is AP_M25_A1 class <br>
 Step2: On the terminal, type "javac Main.java"<br> (This will compile all the classes, interfaces in this project)
 Step3: Now, type "java Main" (This will start the project) <br> <br>
 
-– Describe how to use the CLI and demo features (e.g., add vehicles, simulate jour-
-ney, save/load).
+**Q. Describe how to use the CLI and demo features (e.g., add vehicles, simulate jour-
+ney, save/load).** <br>
+Once the project starts, you will see a serialised menu, use the serial numbers to perform the actions give on the right of the serial number. <br>
 
 – Include a brief walkthrough of running the demo and expected output.
